@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CRUD App</title>
+<style>
+  body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 16px; }
+  h1 { font-size: 1.4rem; }
+  form { display: flex; gap: 8px; margin-bottom: 20px; }
+  input { flex: 1; padding: 8px; }
+  button { padding: 8px 12px; cursor: pointer; }
+  ul { list-style: none; padding: 0; }
+  li { display: flex; justify-content: space-between; align-items: center; padding: 8px; border-bottom: 1px solid #ddd; }
+  .actions button { margin-left: 6px; }
+</style>
+</head>
+<body>
+  <h1>Items (CRUD demo)</h1>
+  <form id="item-form">
+    <input id="name" placeholder="Name" required />
+    <input id="description" placeholder="Description" />
+    <button type="submit">Add</button>
+  </form>
+  <ul id="item-list"></ul>
+
+<script>
+const form = document.getElementById('item-form');
+const list = document.getElementById('item-list');
+
+async function loadItems() {
+  const res = await fetch('/api/items');
+  const items = await res.json();
+  list.innerHTML = '';
+  items.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <span><strong>${item.name}</strong> - ${item.description || ''}</span>
+      <span class="actions">
+        <button onclick="deleteItem(${item.id})">Delete</button>
+      </span>
+    `;
+    list.appendChild(li);
+  });
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const description = document.getElementById('description').value;
+  await fetch('/api/items', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, description })
+  });
+  form.reset();
+  loadItems();
+});
+
+async function deleteItem(id) {
+  await fetch(`/api/items/${id}`, { method: 'DELETE' });
+  loadItems();
+}
+
+loadItems();
+</script>
+</body>
+</html>
