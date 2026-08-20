@@ -1,0 +1,52 @@
+<svg width="680" height="470" viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<rect width="680" height="470" fill="#ffffff"/>
+
+<g>
+<rect x="130" y="40" width="140" height="36" rx="8" fill="#f0f0f0" stroke="#888" stroke-width="1"/>
+<text x="200" y="58" text-anchor="middle" dominant-baseline="central" font-size="13" fill="#222">Internet gateway</text>
+</g>
+<line x1="200" y1="76" x2="200" y2="178" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="40" y="90" width="600" height="340" rx="20" fill="none" stroke="#999" stroke-width="1"/>
+<text x="60" y="118" font-size="14" font-weight="bold" fill="#333">VPC · 10.0.0.0/16</text>
+</g>
+
+<g>
+<rect x="70" y="140" width="260" height="270" rx="12" fill="#eaf3fb" stroke="#7ab0dd" stroke-width="1"/>
+<text x="90" y="164" font-size="13" font-weight="bold" fill="#2a5c86">Public subnet</text>
+</g>
+<g>
+<rect x="90" y="180" width="220" height="50" rx="8" fill="#d7f0ec" stroke="#5cae9e" stroke-width="1"/>
+<text x="200" y="198" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="bold" fill="#1f5548">Application load balancer</text>
+<text x="200" y="216" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#3a6f61">Routes traffic on port 80</text>
+</g>
+<g>
+<rect x="90" y="250" width="220" height="50" rx="8" fill="#d7f0ec" stroke="#5cae9e" stroke-width="1"/>
+<text x="200" y="268" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="bold" fill="#1f5548">NAT gateway</text>
+<text x="200" y="286" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#3a6f61">Outbound internet only</text>
+</g>
+
+<g>
+<rect x="350" y="140" width="260" height="270" rx="12" fill="#f2eafb" stroke="#a97fd1" stroke-width="1"/>
+<text x="370" y="164" font-size="13" font-weight="bold" fill="#5b3785">Private subnet</text>
+</g>
+<g>
+<rect x="370" y="180" width="220" height="60" rx="8" fill="#fbe4de" stroke="#e08a72" stroke-width="1"/>
+<text x="480" y="200" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="bold" fill="#a34324">Auto scaling group</text>
+<text x="480" y="220" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#a34324">EC2 instances running the app</text>
+</g>
+<g>
+<rect x="370" y="270" width="220" height="60" rx="8" fill="#fbe1ec" stroke="#e07ba8" stroke-width="1"/>
+<text x="480" y="290" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="bold" fill="#a3355e">RDS PostgreSQL</text>
+<text x="480" y="310" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#a3355e">Private, SSL required</text>
+</g>
+
+<line x1="310" y1="205" x2="370" y2="207" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="480" y1="240" x2="480" y2="268" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

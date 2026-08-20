@@ -1,0 +1,8 @@
+aws_region   = "af-south-1"
+project_name = "crud-app"
+
+docker_image = "mutshutshudzi/crud-app:latest"
+
+# Copy this file to terraform.tfvars and set a real password there.
+# terraform.tfvars is gitignored so your password never gets committed.
+db_password = "CHANGE_ME_TO_A_STRONG_PASSWORD"
